@@ -1,0 +1,189 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+@plugin "daisyui"{
+  themes:all;
+}
+
+
+*{
+  font-family: "Poppins",sans-serif;
+}
+ 
+ #MenuBottom
+ {
+  font-family: "Montserrat",sans-serif;
+  line-height: 60px;
+ }
+
+ #menuBottom .dark
+ {
+  box-shadow: none;
+  background-color: gray;
+ }
+
+ a.active p{
+   color: blue;
+ }
+ .rating{
+  font-size: 10px;
+ }
+
+ .typewriter{
+  overflow: hidden; /* Ensures the text is hidden until typed */
+  white-space: nowrap; /* Keeps all text on one line */
+  border-right: 0.15em solid orange; /* Blinking cursor effect */
+  font-family: monospace; /* Typewriter-like font */
+  font-size: 1em;
+  width: 0; /* Starts with no visible text */
+
+  /* Combined animation for typing and blinking, with repetition */
+  animation: typing 4s steps(40, end) infinite, /* typing animation, now infinite */
+             blink-caret 0.75s step-end infinite; /* cursor blinking animation, already infinite */
+}
+
+/* Typing animation */
+@keyframes typing{
+  from { width: 0 }
+  to { width: 100% }
+}
+
+#stepTwo
+{
+  font-family:"Montserrat",sans-serif;
+}
+
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+#sideBar.dark
+{
+  box-shadow: none;
+  border-right: 1px solid gray;
+}
+
+#MenuBottom .active p
+{
+  color: orange;
+}
+#MenuBottom .active i
+{
+  color: orange;
+}
+#MenuBottom .active::before{
+  
+}
+
+
+/* Auth Heading CSS */
+/* This class is used for the typewriter effect in the authentication heading */
+.authHeading{
+  overflow: hidden; /* Ensures the text is hidden until typed */
+  white-space: nowrap; /* Keeps all text on one line */
+  border-right: 0.15em solid orange; /* Blinking cursor effect */
+  font-family: 'Times New Roman', Times, serif; /* Typewriter-like font */
+  font-size: 1em;
+  width: 0; /* Starts with no visible text */
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: slategrey;
+
+  /* Combined animation for typing and blinking, with repetition */
+  animation: typing 4s steps(40, end) infinite, /* typing animation, now infinite */
+             blink-caret 0.75s step-end infinite; /* cursor blinking animation, already infinite */
+}
+
+/* Typing animation */
+@keyframes typing{
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+
+
+
+/******************************Booking Page CSS Start************************************/
+
+.main {
+  font-family:"Montserrat",sans-serif;
+  
+}
+
+.leftFilter{
+  display: flex;
+  justify-content: space-between;
+  margin-right: 2em;
+  padding: auto;
+  padding-left: 2em;
+  position: relative;
+  width: calc(100%-320px);
+
+}
+.sideBar{
+  width: 200px;
+  background-color: #fff;
+  position: fixed;
+  top: 12%;
+  height: 100%;
+  padding: 2em;
+}
+
+#booking{
+  font-family: "Montserrat",sans-serif;
+}
+.chatResponse{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  font-size: 1em;
+}
+.dots{
+  overflow: hidden; /* Ensures the text is hidden until typed */
+  white-space: nowrap; /* Keeps all text on one line */
+  border-right: 0.15em solid orange; /* Blinking cursor effect */
+  font-family: 'Times New Roman', Times, serif; /* Typewriter-like font */
+  font-size: 1em;
+  width: 0; /* Starts with no visible text */
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 900;
+  color: slategrey;
+
+  /* Combined animation for typing and blinking, with repetition */
+  animation: dots 4s steps(40, end) infinite, /* typing animation, now infinite */
+             blink-caret 0.75s step-end infinite; /* cursor blinking animation, already infinite */
+}
+
+/* Typing animation */
+@keyframes dots{
+  from { width: 0 }
+  to { width: 100% }
+}
+
+
+/* Blinking cursor animation */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+
+
+
+/******************************Booking Page CSS End************************************/

@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Times+New+Roman:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&display=swap");
+
+
+@import 'tailwindcss';
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+@plugin "daisyui"{
+  themes: all;
+}
+body{
+  overflow-x: hidden;
+}
+
+.loginPage
+{
+  font-family: "Montserrat",sans-serif;
+
+}
+#header
+{
+  line-height: 60px;
+  font-family: "Poppins",sans-serif;
+}
+#sideBar
+{
+  font-family: "Poppins",sans-serif;
+  z-index: 1000;
+  transform: translateX(0); 
+  transition: 0.9s ease-in-out;
+}
+#head
+{
+  font-family: "Poppins",sans-serif;
+}
+#sideBar a.active
+{
+  background-color: #222;
+  color: #fff;
+}
+#sideBar a.active i{
+  color: #fff;
+}
+#dashboard
+{
+  font-family: "Roboto",sans-serif;
+}
+#dashboardStats
+{
+  font-family: "Roboto",sans-serif;
+}
+#overlay{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Z-index should be lower than the menu */
+}
