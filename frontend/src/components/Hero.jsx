@@ -13,7 +13,7 @@ const Hero = () => {
         
 
            
-            <div className='flex gap-5 lg:flex sm:flex max-sm:flex-col max-sm:justify-center'>
+            <div className='flex gap-5 lg:flex sm:flex-col max-sm:flex-col max-sm:justify-center'>
                 <button className='max-w-[200px] text-sm font-semibold text-slate-600 shadow-[8px_8px_16px] cursor-pointer hover:bg-[#ffffff] px-3 py-2 rounded-full bg-white'>Book Now</button>
                 <button className='max-w-[200px] text-sm font-semibold text-slate-600 shadow-[8px_8px_16px] cursor-pointer hover:bg-[#ffffff] px-3 py-2 rounded-full bg-white'>Learn More</button>
             
