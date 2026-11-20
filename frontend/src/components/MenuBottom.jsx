@@ -51,13 +51,6 @@ const MenuBottom = () => {
             </NavLink>
 
 
-             <NavLink to={"/auth0"} className={'flex flex-col gap-4 items-center'}>
-
-                <i  className='fa fa-user-circle w-6' alt="" ></i>
-                <p className=' text-gray-400 text-sm '>account</p>
-                
-            </NavLink>
-
              <NavLink to={'/more'} className={'flex flex-col gap-4 items-center'}>
                  <i className='fa fa-ellipsis-h w-6' alt="" ></i>
                 <p className=' text-gray-400 text-sm '>more</p>
