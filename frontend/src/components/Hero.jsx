@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <div className='flex w-full gap-2 items-center justify-center bg-amber-50 lg:flex  max-sm:flex-col sm:w-full dark:bg-gray-800'>
 
-        <div className='flex flex-col gap-6 bg-amber-200 p-6 shadow-lg rounded-2xl max-sm:absolute max-sm:bg-transparent sm:justify-center sm:items-center sm:w-full sm:gap-4 sm:p-4 sm:rounded-none dark:bg-gray-800'>
+        <div className='flex flex-col gap-6 bg-amber-200 p-6 shadow-lg rounded-2xl max-sm:absolute max-sm:bg-transparent sm:justify-center'>
             <p className='text-3xl font-bold text-slate-400 font-sans'>Where Your Health Is Our priority</p>
             <p className='text-3xl text-slate-600 font-bold font-sans '>Services That Expand Horizons</p>
              <p className='text-slate-600 font-medium font-stretch-80% font-sans'></p>
