@@ -4,7 +4,10 @@ import account_icon from '../assets/user-circle.svg'
 import more_icon from '../assets/horizontal-dots.svg'
 import ai_icon from '../assets/bolt.svg'
 import booking_icon from '../assets/grid.svg'
+import {ShopContext} from "../context/ShopContext"
 const MenuBottom = () => {
+
+    const {token,setToken} = useContext(ShopContext)
   return (
     <div>
        <div id="MenuBottom" className='w-full bg-[#fff] h-[80px] rounded-lg px-5 py-5 dark:text-white dark:bg-gray-800'>
@@ -32,6 +35,20 @@ const MenuBottom = () => {
 
                 </NavLink>
               
+            token ?
+            <NavLink to={"/profile"} className={'flex flex-col gap-4 items-center'}>
+                <i  className='fa fa-user-circle w-6' alt="" ></i>
+                <p className=' text-gray-400 text-sm '>account</p>
+                
+            </NavLink>
+
+            :
+             <NavLink to={"/auth0"} className={'flex flex-col gap-4 items-center'}>
+                <i  className='fa fa-user-circle w-6' alt="" ></i>
+                <p className=' text-gray-400 text-sm '>login</p>
+                
+            </NavLink>
+
 
              <NavLink to={"/auth0"} className={'flex flex-col gap-4 items-center'}>
 
