@@ -4,7 +4,7 @@ import { ShopContext } from '../context/ShopContext'
 import { toast } from 'react-toastify'
 import {useLocation} from 'react-router-dom'
 const AuthPage = () => {
-  const {backendUrl,navigate,token,setToken} = useContext(ShopContext)
+  const {backendUrl,navigate,setToken} = useContext(ShopContext)
   const [currentState,setCurrentState] = useState('Login')
   const [firstName,setFirstName] = useState('')
   const [lastName,setLastName] = useState('')
@@ -29,9 +29,10 @@ const AuthPage = () => {
   const onSubmitHandler = async(e)=>{
     try {
       e.preventDefault();
+      setErrorMessage('')
 
       switch (currentState) {
-        case 'Login':
+        case 'Login': {
           setLoading(true)
           const response = await axios.post(backendUrl + '/api/users/auth',{email,password},{headers:{
             "Content-Type":"application/json"
@@ -55,10 +56,15 @@ const AuthPage = () => {
 
           
           break;
-        case 'Signup':
-          setLoading(true)
-          if (password !== repeatPassword)
+        }
+        case 'Signup': {
+          if (password !== repeatPassword) {
             toast.error("Passwords do not match")
+            setErrorMessage("Passwords do not match")
+            return
+          }
+
+          setLoading(true)
           const resp = await axios.post(backendUrl + '/api/users/register',{firstName,lastName,gender,email,password})
           if(resp.data.success){
             toast.success(resp.data.message)
@@ -68,11 +74,13 @@ const AuthPage = () => {
           }
           else
           {
-            toast.error(resp.data.message)
-            setErrorMessage(resp.data.message)
+            const message = resp.data.message || resp.data.error?.map((item) => item.msg).join(', ') || 'Signup failed. Check your details and try again.'
+            toast.error(message)
+            setErrorMessage(message)
           }
 
           break;
+        }
 
 
       
@@ -83,8 +91,9 @@ const AuthPage = () => {
 
 
     } catch (error) {
-      toast.error(error.message)
-      setErrorMessage(error.message)
+      const message = error.response?.data?.message || error.response?.data?.error?.map((item) => item.msg).join(', ') || error.message
+      toast.error(message)
+      setErrorMessage(message)
     }
     finally{
       setLoading(false)
@@ -138,7 +147,7 @@ const AuthPage = () => {
             currentState === 'Login' ? '' : <div className={`flex flex-col gap-2 mb-3`}>
             
             <p className='font-serif text-slate-600 dark:text-white' >First Name:</p>
-            <input onChange={(e)=>setFirstName(e.target.value)} value={firstName} className='px-5 py-2 text-slate-700 font-serif border border-gray-300 rounded-md shadow outline-none' type="text"  placeholder='First Name' required/>
+            <input onChange={(e)=>setFirstName(e.target.value)} value={firstName} className='px-5 py-2 text-slate-700 font-serif border border-gray-300 rounded-md shadow outline-none' type="text" minLength={4} maxLength={32} placeholder='First Name' required/>
 
           </div>
           }
@@ -147,7 +156,7 @@ const AuthPage = () => {
             currentState === 'Login' ? '' : <div className={`flex flex-col gap-2 mb-3`}>
             
             <p className='font-serif text-slate-600 dark:text-white' >Last Name:</p>
-            <input onChange={(e)=>setLastName(e.target.value)} value={lastName} className='px-5 py-2 text-slate-700 font-serif border border-gray-300 rounded-md shadow outline-none' type="text"  placeholder='Last Name' required/>
+            <input onChange={(e)=>setLastName(e.target.value)} value={lastName} className='px-5 py-2 text-slate-700 font-serif border border-gray-300 rounded-md shadow outline-none' type="text" minLength={4} maxLength={32} placeholder='Last Name' required/>
 
           </div>
           }
@@ -189,7 +198,7 @@ const AuthPage = () => {
               <div className="flex gap-6">
                 <div className="flex gap-1">
                   <p className="text-sm font-serif text-slate-500 dark:text-white">Male</p>
-                   <input type="radio" name="gender" value="male" checked={gender === 'male'} onChange={handleGenderChange} />
+                   <input type="radio" name="gender" value="male" checked={gender === 'male'} onChange={handleGenderChange} required />
                   
                 </div>
 
