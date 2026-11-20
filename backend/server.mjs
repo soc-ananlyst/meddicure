@@ -31,7 +31,7 @@ app.use(express.json())
 
 
 app.use(session({
-    secret: process.env.SESSION_SECRET,
+    secret: process.env.SESSION_SECRET || (process.env.NODE_ENV !== 'production' ? 'dev-only-session-secret' : undefined),
     resave: false,
     saveUninitialized: false,
     cookie: {
@@ -48,6 +48,7 @@ app.use(routes)
 
 
 app.use('/api/docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
+app.get('/', (request, response) => response.redirect('/api/docs'))
 
 
 /*

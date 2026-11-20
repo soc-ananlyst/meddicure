@@ -4,12 +4,13 @@ import OpenAI from "openai";
 
 const router = Router()
 
-const openai = new OpenAI({
-    apiKey:process.env.OPEN_KEY
-})
+// Created on first use so the server can boot when OPEN_KEY is not configured.
+let openaiClient
+const getOpenAI = () => (openaiClient ??= new OpenAI({ apiKey: process.env.OPEN_KEY }))
 
 router.post('/api/ai-assistant',async(request,response)=>{
    try {
+     const openai = getOpenAI()
      const {userMessage} = request.body
      console.log(userMessage)
 
