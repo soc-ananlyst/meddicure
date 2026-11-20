@@ -7,7 +7,7 @@ import { response } from 'express'
 
 const generateToken = async(payload)=>{
 
-    const token = jwt.sign({payload},process.env.JWT_SECRET_KEY)
+    const token = jwt.sign({payload},process.env.JWT_SECRET)
 
     return token
 

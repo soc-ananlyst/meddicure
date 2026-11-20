@@ -19,7 +19,7 @@ const doctorMiddleware  = async(request,response,next)=>{
 
     try {
         
-        const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY)
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
         request.user = decoded
 

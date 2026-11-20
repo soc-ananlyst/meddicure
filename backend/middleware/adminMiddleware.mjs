@@ -15,7 +15,7 @@ const adminMiddlware = async(request,response,next)=>{
     }
 
     try {
-        const decoded = jwt.verify(token,process.env.JWT_SECRET_KEY)
+        const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
         if (decoded === process.env.ADMIN_EMAIL + process.env.ADMIN_PASSWORD)
         {

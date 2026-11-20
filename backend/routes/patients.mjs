@@ -23,7 +23,7 @@ const router = Router()
 
 export const generateJwtToken = (payload)=>{
 
-    const token = jwt.sign({payload},process.env.JWT_SECRET_KEY,{expiresIn:'1h'})
+    const token = jwt.sign({payload},process.env.JWT_SECRET,{expiresIn:'1h'})
 
     return token
 
