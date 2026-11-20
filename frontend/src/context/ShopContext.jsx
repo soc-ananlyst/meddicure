@@ -18,7 +18,7 @@ const ShopContextProvider = (props)=>{
      const navigate = useNavigate()
      const [verified,setVerified]= useState(false)
      const [showSearch,setShowSearch] = useState(true)
-     const backendUrl = 'http://localhost:5500'
+     const backendUrl = 'https://meddicure-gtfb.vercel.app'
      
 
     //const [doctors,setDoctors] = useState([])
