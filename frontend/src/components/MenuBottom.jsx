@@ -36,7 +36,8 @@ const MenuBottom = () => {
 
                 </NavLink>
               
-            token === ' '?
+            {
+            token ?
             <NavLink to={"/auth0"} className={'flex flex-col gap-4 items-center'}>
                 <i  className='fa fa-user-circle w-6' alt="" ></i>
                 <p className=' text-gray-400 text-sm '>login</p>
@@ -49,7 +50,7 @@ const MenuBottom = () => {
                 <p className=' text-gray-400 text-sm '>profile</p>
                 
             </NavLink>
-
+            }
 
              <NavLink to={'/more'} className={'flex flex-col gap-4 items-center'}>
                  <i className='fa fa-ellipsis-h w-6' alt="" ></i>
