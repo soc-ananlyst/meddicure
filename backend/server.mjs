@@ -50,7 +50,13 @@ app.use(routes)
 app.use('/api/docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 
 
-
+/*
 server.listen(process.env.PORT,()=>{
     console.log(`[+] Server running on port : ${process.env.PORT}`)
 })
+*/
+
+if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {
+  const port = process.env.PORT || 3000;
+  server.listen(port, () => console.log(`Local server listening on ${port}`));
+}
