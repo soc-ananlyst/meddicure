@@ -5,6 +5,7 @@ import more_icon from '../assets/horizontal-dots.svg'
 import ai_icon from '../assets/bolt.svg'
 import booking_icon from '../assets/grid.svg'
 import {ShopContext} from "../context/ShopContext"
+import { useContext } from 'react'
 const MenuBottom = () => {
 
     const {token,setToken} = useContext(ShopContext)
