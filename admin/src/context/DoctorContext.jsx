@@ -7,7 +7,7 @@ export const DoctorContext = createContext()
 
 const DoctorContextProvider = (props)=>{
     const [token,setToken] = useState('')
-    const backendURL = 'http://localhost:5500'
+    const backendURL = 'https://meddicure-gtfb.vercel.app'
     const navigate  = useNavigate()
     const [showSidebar,setShowSidebar] = useState(false)
     const [currentPage,setCurrentPage] = useState('')
