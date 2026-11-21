@@ -1,6 +1,6 @@
 import { useContext, useState } from 'react'
 import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import viteLogo from '/web.svg'
 import './App.css'
 import { Routes,Route } from 'react-router-dom'
 import { DoctorContext } from './context/DoctorContext'
