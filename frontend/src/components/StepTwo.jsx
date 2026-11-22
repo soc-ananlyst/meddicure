@@ -64,7 +64,7 @@ const StepTwo = ({ nextStep, prevStep, handleChange, values }) => {
           <input
             type="text"
             onChange={handleChange("city")}
-            defaultValue={values.city}
+            defaultValue={values.location}
             className="block w-full px-3 py-2 mt-1 border border-gray-300 outline-none"
             required
             placeholder="Location...."
@@ -78,7 +78,7 @@ const StepTwo = ({ nextStep, prevStep, handleChange, values }) => {
           <input
             type="text"
             onChange={handleChange("city")}
-            defaultValue={values.city}
+            defaultValue={values.street}
             className="block w-full px-3 py-2 mt-1 border border-gray-300 outline-none"
             required
             placeholder="Street or Estate...."

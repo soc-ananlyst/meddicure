@@ -20,7 +20,7 @@ import amref_logo from '../assets/amref.jpeg'
 
 const Home = () => {
   return (
-    <div className='w-full min-h-screen mt-5  dark:bg-slate-950'>
+    <div className='w-full min-h-screen mt-5  dark:bg-slate-950 sm:w-full lg:w-full max-sm:w-full md:w-full max-md:w-full'>
       <Hero />
 
      

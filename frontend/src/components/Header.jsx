@@ -20,9 +20,9 @@ const Header = () => {
   return (
     <div className='flex  w-full sticky mx-auto  justify-between px-5 py-5 bg-white lg:justify-between sm:justify-center  md:justify-between max-md:justify-between dark:bg-gray-800 dark:border-b dark:text-white'>
 
-        <div className='flex'>
+        <div className='flex sm:justify-center items-center gap-2'>
             <img src={logo} alt="Logo" className='w-35 h-10' />
-            <h1 className='font-extrabold font-mono text-slate-600 text-2xl'></h1>
+            
 
         </div>
 
