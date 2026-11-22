@@ -35,8 +35,8 @@ const StepTwo = ({ nextStep, prevStep, handleChange, values }) => {
           </label>
           <input
             type="text"
-            onChange={handleChange("city")}
-            defaultValue={values.city}
+            onChange={handleChange("constituency")}
+            defaultValue={values.constituency}
             className="block w-full px-3 py-2 mt-1 border border-gray-300 outline-none"
             required
             placeholder="your constituency"
@@ -63,7 +63,7 @@ const StepTwo = ({ nextStep, prevStep, handleChange, values }) => {
           </label>
           <input
             type="text"
-            onChange={handleChange("city")}
+            onChange={handleChange("location")}
             defaultValue={values.location}
             className="block w-full px-3 py-2 mt-1 border border-gray-300 outline-none"
             required
@@ -77,7 +77,7 @@ const StepTwo = ({ nextStep, prevStep, handleChange, values }) => {
           </label>
           <input
             type="text"
-            onChange={handleChange("city")}
+            onChange={handleChange("street")}
             defaultValue={values.street}
             className="block w-full px-3 py-2 mt-1 border border-gray-300 outline-none"
             required
