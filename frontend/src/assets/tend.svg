@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280" fill="none">
+  <defs>
+    <linearGradient id="tend-gradient" x1="35" y1="255" x2="285" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2c6674" />
+      <stop offset="45%" stop-color="#5a948e" />
+      <stop offset="75%" stop-color="#b5b288" />
+      <stop offset="100%" stop-color="#e3c58e" />
+    </linearGradient>
+  </defs>
+
+  
+  <g transform="translate(10, -10)" stroke="url(#tend-gradient)" stroke-width="14.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 118 225 C 48 182, 16 122, 48 72 C 78 26, 144 32, 174 84 C 194 118, 184 152, 158 152 C 132 152, 126 116, 146 88" />
+    <path d="M 56 122 C 52 84, 82 58, 118 66" />
+    <path d="M 164 56 C 204 28, 266 44, 276 102 C 278 114, 277 125, 275 135" />
+    <path d="M 152 178 L 214 148 C 228 141, 232 154, 222 166 L 200 184 L 266 146 C 280 138, 294 146, 286 162 C 272 192, 244 234, 198 258 C 148 284, 96 266, 98 224 C 99 202, 118 192, 152 178 Z" />
+    <path d="M 218 206 L 258 178" />
+  </g>
+
+  
+  <text x="335" y="195" fill="#386f7b" font-family="&#39;Nunito&#39;, &#39;Quicksand&#39;, &#39;Varela Round&#39;, &#39;Segoe UI&#39;, system-ui, -apple-system, sans-serif" font-size="142" font-weight="700" letter-spacing="-2">Tend</text>
+</svg>

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
 import account_icon from '../assets/user-circle.svg'
 import search_icon from '../assets/search.png'
+import logo from '../assets/tend.svg'
 
 const Header = () => {
 
@@ -20,7 +21,8 @@ const Header = () => {
     <div className='flex  w-full sticky mx-auto  justify-between px-5 py-5 bg-white lg:justify-between sm:justify-center  md:justify-between max-md:justify-between dark:bg-gray-800 dark:border-b dark:text-white'>
 
         <div className='flex'>
-            <h1 className='font-extrabold font-mono text-slate-600 text-2xl'>Meddicure</h1>
+            <img src={logo} alt="Logo" className='w-35 h-10' />
+            <h1 className='font-extrabold font-mono text-slate-600 text-2xl'></h1>
 
         </div>
 
