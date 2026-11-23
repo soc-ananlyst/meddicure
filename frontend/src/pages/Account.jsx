@@ -214,11 +214,6 @@ export default function Account() {
        const response =  await axios.get(backendUrl+'/api/users/profile',{headers:{
       authorization:`Bearer ${token}`
     }})
-
-      if (!response.data.success) {
-        throw new Error('Failed to fetch user data');
-      }
-
       const user = await response.data.user;
       console.log('User Data:', user);
       setUser(user);
@@ -260,7 +255,7 @@ export default function Account() {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
-                   
+                   {user.firstName} {user.lastName}
                   </h1>
                   <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700 border border-teal-200">
                     ID #TND-84920
