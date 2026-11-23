@@ -211,15 +211,15 @@ export default function Account() {
 
   const getUserData = async () => {
     try {
-       const response =  await axios.post(backendUrl + '/api/users/profile',{headers:{
+       const response =  await axios.get(backendUrl+'/api/users/profile',{headers:{
       authorization:`Bearer ${token}`
     }})
 
-      if (!response.ok) {
+      if (!response.data.success) {
         throw new Error('Failed to fetch user data');
       }
 
-      const user = await response.json();
+      const user = await response.data.user;
       console.log('User Data:', user);
       setUser(user);
     } catch (error) {
