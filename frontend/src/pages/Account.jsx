@@ -239,6 +239,9 @@ export default function Account() {
       <header className="border-b border-slate-200 bg-white">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 sm:px-6">
           <TendMark />
+          <div className = "hover:underline hover:text-blue-600 cursor-pointer" onClick={()=>navigate('/')}>
+            <span><i className="fas fa-home fill-green-950"></i></span>
+          </div>
           <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
             <span className="h-2 w-2 rounded-full bg-emerald-500" />
             <span>Patient Profile</span>

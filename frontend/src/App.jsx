@@ -28,7 +28,7 @@ const App = ()=>{
       <ToastContainer />
 
       {
-        current_route == '/my-account' ? '' : <Header />
+        current_route == '/account' ? '' : <Header />
       }
       
 
