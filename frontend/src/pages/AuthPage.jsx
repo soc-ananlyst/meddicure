@@ -44,7 +44,7 @@ const AuthPage = () => {
             localStorage.setItem('token',response.data.token)
             toast.success('Login Success')
             const prevUrl = window.history.back()
-            prevUrl !== window.href ? navigate(prevUrl) : navigate('/')/// Redirect to Home or previous page
+            prevUrl !== window.href ? navigate(prevUrl) : navigate('/account')/// Redirect to Home or previous page
             setCurrentState('Login') // Reset to Login state after successful login
           }
           else{

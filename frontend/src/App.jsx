@@ -44,7 +44,7 @@ const App = ()=>{
         <Route path="/video-call" element={<VideoCall />}/>
         <Route path="/doctor-detail" element={<DoctorDetail />}/>
         <Route path="/pharmacy" element={<Pharmacy />}/>
-        <Route path="/my-account" element={<Account/>}/>
+        <Route path="/account" element={<Account/>}/>
       </Routes>
     <div className="mt-5">
       
