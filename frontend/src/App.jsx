@@ -15,15 +15,21 @@ import Profile from "./pages/Profile";
 import VideoCall from './components/VideoCall'
 import DoctorDetail from "./pages/DoctorDetail";
 import Pharmacy from "./pages/Pharmacy";
+import Account from "./pages/Account";
 
 const App = ()=>{
+
+  const current_route = window.location.pathname;
 
 
 
   return(
     <div className="dark:bg-gray-800">
       <ToastContainer />
-      <Header />
+
+      {
+        current_route == '/my-account' ? '' : <Header />
+      }
       
 
 
@@ -38,6 +44,7 @@ const App = ()=>{
         <Route path="/video-call" element={<VideoCall />}/>
         <Route path="/doctor-detail" element={<DoctorDetail />}/>
         <Route path="/pharmacy" element={<Pharmacy />}/>
+        <Route path="/my-account" element={<Account/>}/>
       </Routes>
     <div className="mt-5">
       

@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { ShopContext } from '../context/ShopContext'
 import account_icon from '../assets/user-circle.svg'
 import search_icon from '../assets/search.png'
-import logo from '../assets/tend.svg'
+import logo from '../assets/mytend.svg'
 
 const Header = () => {
 
@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <div className='flex  w-full sticky mx-auto  justify-between px-5 py-5 bg-white lg:justify-between sm:justify-center  md:justify-between max-md:justify-between dark:bg-gray-800 dark:border-b dark:text-white'>
 
-        <div className='flex sm:justify-center items-center gap-2'>
+        <div className='flex sm:justify-center items-center gap-2 max-sm:justify-center'>
             <img src={logo} alt="Logo" className='w-35 h-10' />
             
 
@@ -74,13 +74,13 @@ const Header = () => {
                   <ul
                     tabIndex={0}
                     className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow dark:bg-gray-800">
-                    <li>
+                    <li onClick={()=>navigate('/my-account')}>
                       <a className="justify-between">
                         Profile
                         <span className="badge">New</span>
                       </a>
                     </li>
-                    <li><a>Settings</a></li>
+                    <li onClick={()=>navigate('/settings')}><a>Settings</a></li>
                     <li onClick={logout} ><a>Logout</a></li>
                   </ul>
                 </div>

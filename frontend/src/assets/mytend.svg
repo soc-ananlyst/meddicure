@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 510 210" width="510" height="210">
+  <defs>
+    
+    <linearGradient id="tealGradMain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3898A8" />
+      <stop offset="55%" stop-color="#5DB9AD" />
+      <stop offset="100%" stop-color="#87D3BE" />
+    </linearGradient>
+
+    <linearGradient id="tealGradDark" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#2B7A8C" />
+      <stop offset="100%" stop-color="#48A69E" />
+    </linearGradient>
+
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2E7D90" />
+      <stop offset="50%" stop-color="#4399A6" />
+      <stop offset="100%" stop-color="#58B0B5" />
+    </linearGradient>
+  </defs>
+
+  
+  <g id="tend-icon" transform="translate(112, 105) scale(0.88)">
+    
+    <path d="M -88 -38 
+             C -105 18, -80 88, 0 92 
+             C 78 96, 114 38, 108 -18 
+             C 106 -32, 92 -32, 90 -18 
+             C 88 22, 54 62, 4 62 
+             C -46 62, -76 22, -72 -32 
+             C -70 -44, -84 -48, -88 -38 Z" fill="url(#tealGradMain)" />
+
+    
+    <circle cx="99" cy="-42" r="10" fill="#63BEB1" />
+
+    
+    <circle cx="0" cy="44" r="17" fill="url(#tealGradDark)" />
+    <circle cx="0" cy="44" r="7" fill="#FFFFFF" opacity="0.35" />
+
+    
+    <path d="M -6 28 L -6 48 L 6 48 L 6 28 Z" fill="url(#tealGradDark)" />
+
+    
+    <path d="M -46 -84 
+             C -62 -35, -48 24, 0 26 
+             C 48 24, 62 -35, 46 -84" fill="none" stroke="url(#tealGradMain)" stroke-width="15" stroke-linecap="round" />
+
+    
+    <path d="M -46 -84 
+             C -62 -35, -48 24, 0 26 
+             C 48 24, 62 -35, 46 -84" fill="none" stroke="#A8E6D7" stroke-width="4" stroke-linecap="round" opacity="0.55" />
+
+    
+    <circle cx="-46" cy="-88" r="12" fill="#2A7587" />
+    <circle cx="-48" cy="-90" r="4" fill="#9CE0D3" />
+
+    
+    <circle cx="46" cy="-88" r="12" fill="#2A7587" />
+    <circle cx="44" cy="-90" r="4" fill="#9CE0D3" />
+  </g>
+
+  
+  <text x="228" y="141" text-anchor="start" font-family="system-ui, -apple-system, &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif" font-size="112" font-weight="800" letter-spacing="-3" fill="url(#textGrad)">tend</text>
+</svg>

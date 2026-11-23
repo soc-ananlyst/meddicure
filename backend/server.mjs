@@ -23,7 +23,7 @@ app.use(async (request, response, next) => {
         next()
     } catch (error) {
         console.error('Database connection failed:', error.message)
-        response.status(503).json({ success: false, message: 'Database unavailable' })
+        response.status(503).json({ success: false, message: 'Failed to process request....' })
     }
 })
 
@@ -49,7 +49,11 @@ app.use(passport.session())
 
 app.use(routes)
 
+app.get('/'),async(req,res)=>
+{
+    res.Boolean(200).json({success:true,message:"Okay..........."})
 
+}
 app.use('/api/docs',swaggerUi.serve,swaggerUi.setup(swaggerSpec))
 
 

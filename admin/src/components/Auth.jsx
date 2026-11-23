@@ -137,7 +137,7 @@ const Auth = () => {
     <header id='header' className='flex items-center justify-center bg-primary light:bg-dark'>
 
         <div className='flex items-center justify-between'>
-            <p className='text-center text-white'>Meddicure</p>
+            <p className='text-center text-white'>Tend</p>
 
         </div>
 
@@ -160,7 +160,7 @@ const Auth = () => {
         <div className=''>
             <div className='flex flex-col items-center justify-center top-[10%] left-[40%] absolute max-sm:left-[10%]'>
 
-            <div className='flex gap-8'>
+            <div className='flex gap-8 mt-8'>
 
                 <p onClick={()=>setCurrentState("Login")} className={` ${currentState ==="Login" ? 'btn btn-primary' : 'btn btn-soft' }`}>Login</p>
                 <p onClick={()=>setCurrentState("Signup")} className={`${currentState === "Signup" ? 'btn btn-primary' : 'btn btn-soft'}`}>Signup</p>

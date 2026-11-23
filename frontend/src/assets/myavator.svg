@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240">
+  <defs>
+    
+    <clipPath id="avatarClip">
+      <circle cx="120" cy="120" r="106" />
+    </clipPath>
+
+    <linearGradient id="skinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFD4BA" />
+      <stop offset="100%" stop-color="#F4B28E" />
+    </linearGradient>
+
+    <linearGradient id="hairGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4B3838" />
+      <stop offset="100%" stop-color="#2E2121" />
+    </linearGradient>
+  </defs>
+
+  
+  <g clip-path="url(#avatarClip)">
+    
+    <path d="M 60 112
+             C 52 98, 56 80, 68 72
+             C 68 54, 84 42, 102 44
+             C 114 34, 134 34, 146 46
+             C 164 46, 178 60, 176 78
+             C 186 88, 186 106, 176 116
+             C 178 130, 166 142, 152 140
+             L 88 140
+             C 74 142, 62 130, 60 112 Z" fill="url(#hairGrad)" stroke="#2A1D1D" stroke-width="3.5" stroke-linejoin="round" />
+
+    
+    <path d="M 54 232
+             C 62 198, 84 186, 120 186
+             C 156 186, 178 198, 186 232 Z" fill="#2B7A8C" stroke="#2A1D1D" stroke-width="3.5" stroke-linejoin="round" />
+
+    
+    <path d="M 103 152 L 103 190 C 103 200, 137 200, 137 190 L 137 152 Z" fill="url(#skinGrad)" stroke="#2A1D1D" stroke-width="3.5" />
+
+    
+    <path d="M 105 156 C 114 166, 126 166, 135 156 L 135 166 C 126 174, 114 174, 105 166 Z" fill="#DF9570" opacity="0.6" />
+
+    
+    <path d="M 81 114 C 71 112, 70 132, 82 134" fill="#F6B997" stroke="#2A1D1D" stroke-width="3.5" stroke-linecap="round" />
+    <path d="M 159 114 C 169 112, 170 132, 158 134" fill="#F6B997" stroke="#2A1D1D" stroke-width="3.5" stroke-linecap="round" />
+
+    
+    <path d="M 81 96
+             C 81 70, 159 70, 159 96
+             L 159 124
+             C 159 150, 138 166, 120 166
+             C 102 166, 81 150, 81 124 Z" fill="url(#skinGrad)" stroke="#2A1D1D" stroke-width="3.5" />
+
+    
+    <ellipse cx="96" cy="133" rx="7" ry="4" fill="#E88B72" opacity="0.35" />
+    <ellipse cx="144" cy="133" rx="7" ry="4" fill="#E88B72" opacity="0.35" />
+
+    
+    <path d="M 80 104
+             C 78 82, 92 64, 114 66
+             C 122 58, 140 58, 148 68
+             C 160 72, 164 88, 160 104
+             C 154 90, 144 82, 132 82
+             C 124 88, 114 88, 108 80
+             C 96 80, 86 90, 80 104 Z" fill="url(#hairGrad)" stroke="#2A1D1D" stroke-width="3.5" stroke-linejoin="round" />
+
+    
+    <path d="M 92 103 Q 101 98 110 102" fill="none" stroke="#2A1D1D" stroke-width="3.2" stroke-linecap="round" />
+    <path d="M 130 102 Q 139 98 148 103" fill="none" stroke="#2A1D1D" stroke-width="3.2" stroke-linecap="round" />
+
+    
+    <circle cx="101" cy="116" r="4.5" fill="#2A1D1D" />
+    <circle cx="99.5" cy="114.5" r="1.4" fill="#FFFFFF" />
+
+    <circle cx="139" cy="116" r="4.5" fill="#2A1D1D" />
+    <circle cx="137.5" cy="114.5" r="1.4" fill="#FFFFFF" />
+
+    
+    <g fill="none" stroke="#2B3A42" stroke-width="3.2" stroke-linecap="round">
+      <circle cx="101" cy="116" r="14.5" />
+      <circle cx="139" cy="116" r="14.5" />
+      
+      <path d="M 115.5 115 Q 120 112 124.5 115" />
+      
+      <line x1="81" y1="114" x2="86.5" y2="115" />
+      <line x1="153.5" y1="115" x2="159" y2="114" />
+    </g>
+
+    
+    <path d="M 119 121 L 117 130 Q 120 132 123 130" fill="none" stroke="#C87E5B" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+
+    
+    <path d="M 107 140 Q 120 151 133 140 Z" fill="#FFFFFF" stroke="#2A1D1D" stroke-width="2.8" stroke-linejoin="round" />
+
+    
+    <path d="M 116 154 Q 120 156 124 154" fill="none" stroke="#C87E5B" stroke-width="2.2" stroke-linecap="round" />
+  </g>
+
+  
+  <circle cx="120" cy="120" r="106" fill="none" stroke="#3898A8" stroke-width="5" />
+</svg>
