@@ -202,7 +202,7 @@ export default function Account() {
     });
   };
 
-  const {token,setToken,backendUrl} = useContext(ShopContext);
+  const {token,setToken,backendUrl,navigate} = useContext(ShopContext);
   const {user, setUser} = useState([]);
 
   
