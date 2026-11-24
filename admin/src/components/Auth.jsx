@@ -164,21 +164,9 @@ const Auth = () => {
                         {currentState}
                     </legend>
 
-                        {
-                            currentState === "Signup" ? <div><label htmlFor="firstName">First Name:</label>
-                        <input onChange={(e)=>setFirstName(e.target.value)} value={firstName} type="text" className="input validator" required placeholder="First Name" 
-                        pattern="[A-Za-z]*" minLength="3" maxLength="30" title="Only letters, numbers or dash" /> </div> : ''
-                        }
+                       
                         
-                        {
-                            currentState === "Signup" ? 
-                             <div>
-                         <label htmlFor="lastName">Last Name:</label>
-                        <input onChange={(e)=>setLastName(e.target.value)} value={lastName} type="text" className="input validator" required placeholder="Last Name" 
-                        pattern="[A-Za-z][A-Za-z0-9\-]*" minLength="3" maxLength="30" title="Only letters, numbers or dash" />
-
-                     </div> : ''
-                        }
+                       
                         
                     
                         <label htmlFor="email">Email:</label>
@@ -192,16 +180,7 @@ const Auth = () => {
                         title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
                        
                     
-                    {
-                        currentState === "Signup" ? 
-                        <div>
-                        <label htmlFor="">Confrim Password:</label>
-                        <input onChange={(e)=>setPassword2(e.target.value)} value={password2} type="password" className="input validator" required placeholder="Confirm Password" minLength="8" 
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
-                        title="Must be more than 8 characters, including number, lowercase letter, uppercase letter" />
-                        
-                    </div> : ''
-                    }
+                   
 
                     {
                         currentState === 'Login' ? 
@@ -211,33 +190,7 @@ const Auth = () => {
 
                     }
 
-                    {
-                        currentState === "Signup" ? 
-
-                         <div className='flex gap-8'>
-                        <div className='flex flex-col gap-2'>
-                            <p className='text-sm'>Male</p>
-                            <input type="radio" name="gender" value="male" checked ={gender === "male"} onChange={handleGenderChange} id="male"  />
-
-                        </div>
-
-                        <div className='flex flex-col gap-2'>
-                            <p className='text-sm'>Female</p>
-                            <input type="radio" name="gender" value="female" checked ={gender === "female"} onChange={handleGenderChange} id="female" />
-
-                        </div>
-
-                        <div className='flex flex-col gap-2'>
-                            <p className='text-sm'>Other</p>
-                            <input type="radio" name="gender" value="other" checked ={gender === "other"} onChange={handleGenderChange} id="other" />
-
-                        </div>
-
-                    </div> : ''
-                    }
                     
-                  
-                   
                    
                     
                     {
