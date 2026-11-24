@@ -1,1 +1,1 @@
-meddicure
+Tend or meddicure is an online platform that allows patients to get medical help online and physical from reliable medical experts in and out of the country and get medicines and refills for all kinds of pills with home deliveries 
