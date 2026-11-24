@@ -300,6 +300,14 @@ export default function Account() {
                    · Status:{ user.isActive ? <span className="text-green-600 font-semibold">Active</span> : <span className="text-red-600 font-semibold">Inactive</span>}
                 </p>
 
+                {
+                  user.isVerified ? <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
+                  Verified: <strong className="text-slate-700">Yes</strong> 
+                </p> : <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
+                  Verified: <strong className="text-red-600 font-semibold">No</strong> 
+                </p>
+                }
+
                  <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
                   Last Updated: <strong className="text-slate-700 font-mono">{new Date(user.updatedAt).toLocaleString()}</strong>
                  
