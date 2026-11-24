@@ -203,25 +203,45 @@ export default function Account() {
   };
 
   const {token,setToken,backendUrl,navigate} = useContext(ShopContext);
-  const {user, setUser} = useState([]);
+  const [user, setUser] = useState([]);
 
   
 
 
 
   const getUserData = async () => {
+    if(!token) {
+      toast.error('No token found. Please login or register.');
+      navigate('/auth0');
+      return;
+    }
     try {
        const response =  await axios.get(backendUrl+'/api/users/profile',{headers:{
       authorization:`Bearer ${token}`
     }})
-      const user = await response.data.user;
-      console.log('User Data:', user);
-      setUser(user);
+    if(response.data.success)
+    {
+        const user = await response.data.user;
+        console.log('User Data:', user);
+        console.log('User First Name:', user.firstName);
+        setUser(user);
+    }else
+    {
+        toast.error('Failed please login or register');
+    }
+     
     } catch (error) {
       console.error('Error fetching user data:', error);
       toast.error('Failed please login or register');
     }
   };
+
+  useEffect(()=>{
+    if(!token)
+    {
+      navigate('/auth0')
+    }
+  })
 
   useEffect(() => {
     getUserData();
@@ -254,18 +274,42 @@ export default function Account() {
               </div>
               <div>
                 <div className="flex flex-wrap items-center gap-2">
-                  <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+                  {
+                    user ? <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
                    {user.firstName} {user.lastName}
+                  </h1> : <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+                   UserName Here
                   </h1>
+
+
+                  }
+                  {
+                    user ? <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700 border border-teal-200">
+                    ID #{user._id}
+                  </span>
+                  :
                   <span className="rounded-full bg-teal-50 px-2.5 py-0.5 text-xs font-semibold text-teal-700 border border-teal-200">
                     ID #TND-84920
                   </span>
+                  }
+                  
                 </div>
                 <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
+                  Email: <strong className="text-slate-700">{user.email}</strong> 
+                  ·Last login: {new Date(user.lastLogin).toLocaleString()} · Joined: <strong className="text-slate-700">{new Date(user.joined).toLocaleString()}</strong>
+                   · Status:{ user.isActive ? <span className="text-green-600 font-semibold">Active</span> : <span className="text-red-600 font-semibold">Inactive</span>}
+                </p>
+
+                 <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
+                  Last Updated: <strong className="text-slate-700 font-mono">{new Date(user.updatedAt).toLocaleString()}</strong>
+                 
+                </p>
+                 <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
                   Blood Type: <strong className="text-slate-700">O+</strong> · Allergies:{' '}
                   <strong className="text-slate-700">Penicillin, Peanuts</strong> · Cover:{' '}
                   <strong className="text-slate-700">AAR Health Care</strong>
                 </p>
+
               </div>
             </div>
 
