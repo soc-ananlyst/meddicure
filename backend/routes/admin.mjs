@@ -1,10 +1,23 @@
-import { request, response, Router } from "express";
-import User from "../models/users.mjs";
+import { json, request, response, Router } from "express";
+import Admin from "../models/admin.mjs";
 import Doctor from "../models/doctor.mjs";
 import jwt from 'jsonwebtoken'
+import User from "../models/users.mjs"
+import { loginValidator, registerValidator } from "../validators/validator.mjs";
+import { body, checkSchema, matchedData, validationResult } from "express-validator";
+import bcrypt from 'bcrypt'
 
 const router = Router()
 
+
+
+export const generateJwtToken = (payload)=>{
+
+    const token = jwt.sign({payload},process.env.JWT_SECRET,{expiresIn:'1h'})
+
+    return token
+
+}
 
 
 /*
@@ -111,6 +124,135 @@ router.post('/api/super/delete/patients',async(request,response)=>{
     
    }
     
+})
+
+
+router.post('/api/super/auth',checkSchema(loginValidator),async(request,response)=>{
+    try{
+        const validation_result = validationResult(body)
+
+        if(!validation_result.isEmpty)
+        {
+            return response.status(400).json({success:false,error:validation_result.array()})
+        }
+        const {email,password} = request.body;
+
+        const data = matchedData(request);
+        
+        const user = await Admin.findOne({email});
+
+        if(!user)
+        {
+            return response.status(401).json({success:false,message:"invalid username or password"});
+        }
+
+        if(user.role !== 'admin')
+            return response.status(403).json({succes:false,message:"Enpoint protected"})
+
+        const is_password = bcrpt.compare(password,user.password);
+
+
+        // COMPARING PASSWORDS ENTERED AND THE USER PASSWORD IN OUR DATABASE
+        const passswordMatch =await bcrypt.compare(password,user.password)
+
+       
+
+        if(!passswordMatch)
+        {
+            user.loginAttempts +=1
+            user.lastLoginAttempt = new Date
+            await user.save();
+            return response.status(409).json({success:false,message:"Invalid email or password"})
+        }
+        if(user.loginAttempts >= 5 )
+        {
+             
+
+            return response.json({success:false,message:`Too many attempts try in `})
+        }
+
+
+        const payload = {
+            id:user._id,
+            role:user.role,
+        }
+
+        const token = generateJwtToken(payload);
+
+        return response.status(200).json({success:true,token:token,type:"Bearer"});
+
+
+    }catch(err)
+    {
+        console.log(err)
+
+    }
+
+})
+
+router.post('/api/super/add',checkSchema(registerValidator),async(request,response)=>{
+    try
+    {
+        const result = validationResult(body)
+
+        if(!result.isEmpty)
+            return response.status(409),json({success:false,error:result.array});
+
+        const data = matchedData(request.body);
+
+        const {email,firstName,lastName,gender,password1,password2} = request.body;
+
+        const user = await Admin.findOne({email});
+
+        //check whether another user with same email exists
+
+        if(user)
+            return response.status(409).json({success:false,message:"user exists"});
+
+        // compare the user passwords
+        if(password1 !== password2)
+        {
+            return response.status(409).json({success:false,message:"passwords mismatch"});
+        }
+
+        const salt = await bcrypt.genSalt(10);
+
+        const hashed_password =await bcrypt.hash(password2,salt);
+
+        data.password = hashed_password;
+
+        const newUser = new Admin({
+            firstName:firstName,
+            lastName:lastName,
+            email:email,
+            gender:gender,
+           
+            role:'admin',
+            password:hashed_password
+        })
+
+        newUser.status = 'Approved';
+        await newUser.save();
+
+        const user_out = {
+            id:newUser._id,
+            email:newUser.email,
+            first_name:newUser.firstName,
+            last_name:newUser.lastName,
+            role:newUser.role,
+            gender:newUser.gender
+
+        }
+
+        return response.status(201).json({success:true,user:user_out});
+
+
+
+        //console.log(data);
+    }catch(error)
+    {
+        console.log(error)
+    }
 })
 
 export default router

@@ -2,10 +2,10 @@ import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-export const DoctorContext = createContext()
+export const AdminContext = createContext()
 
 
-const DoctorContextProvider = (props)=>{
+const AdminContextProvider = (props)=>{
     const [token,setToken] = useState('')
     const backendURL = 'https://meddicure-gtfb.vercel.app'
     const navigate  = useNavigate()
@@ -28,10 +28,10 @@ const DoctorContextProvider = (props)=>{
 
 
     return(
-        <DoctorContext.Provider value={values}>
+        <AdminContext.Provider value={values}>
             {props.children}
-        </DoctorContext.Provider>
+        </AdminContext.Provider>
     )
 }
 
-export default DoctorContextProvider
+export default AdminContextProvider

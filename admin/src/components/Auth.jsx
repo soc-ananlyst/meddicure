@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react'
 import axios from 'axios'
-import { DoctorContext } from '../context/DoctorContext'
+import { AdminContext } from '../context/AdminContext'
 import { toast } from 'react-toastify'
 
 const Auth = () => {
-    const {token,setToken,backendURL,navigate} = useContext(DoctorContext)
+    const {token,setToken,backendURL,navigate} = useContext(AdminContext)
 
     const [currentState,setCurrentState] = useState("Login")
     const [firstName,setFirstName] = useState('')
@@ -16,13 +16,6 @@ const Auth = () => {
     const [errorMessage, setErrorMessage] = useState('')
     const [gender,setGender] = useState('')
     const [successMessage,setSuccessMessage] = useState('')
-
-    const [image1,setImage1]= useState(false)
-    const [image2,setImage2]= useState(false)
-    const [image3,setImage3]= useState(false)
-    const [image4,setImage4]= useState(false)
-
-
 
      const handleGenderChange = (e)=>{
 
@@ -38,11 +31,7 @@ const Auth = () => {
     formData.append('password',password)
     formData.append('gender',gender)
 
-    image1 && formData.append('image1',image1)
-    image2 && formData.append('image2',image2)
-    image3 && formData.append('image3',image3)
-    image4 && formData.append('image4',image4)
-
+  
     const loginData = new FormData()
 
     loginData.append('email',email)
@@ -61,7 +50,7 @@ const Auth = () => {
                     console.log(password)
 
                     
-                    const response = await axios.post(backendURL + '/api/users/doctor/auth',{email,password})
+                    const response = await axios.post(backendURL + '/api/super/auth',{email,password})
                     console.log(password)
                     if(response.data.success)
                     {
@@ -100,7 +89,7 @@ const Auth = () => {
                         setToken(localStorage.getItem('token'))
 
                         setSuccessMessage(signupResponse.data.message)
-                        navigate('/profile')
+                        navigate('/dashboard')
                         toast.success(signupResponse.data.message)
                         setFirstName('')
                         setLastName('')
@@ -133,7 +122,7 @@ const Auth = () => {
 
     
   return (
-    <div className='loginPage dark:text-white'>
+    <div className='loginPage text-black dark:text-white'>
     <header id='header' className='flex items-center justify-center bg-primary light:bg-dark'>
 
         <div className='flex items-center justify-between'>
@@ -247,30 +236,7 @@ const Auth = () => {
                     </div> : ''
                     }
                     
-                    {
-                        currentState === "Signup" ? 
-
-                        <div className='flex flex-col gap-1'>
-                            <p className='text-sm'>Upload images</p>
-                        <div>
-                            <input onChange={(e)=>setImage1(e.target.files[0])} name='image1' type="file" className="file-input file-input-primary" />
-                        </div>
-
-                         <div>
-                            <input onChange={(e)=>setImage2(e.target.files[0])} name='image2' type="file" className="file-input file-input-neutral" />
-                        </div>
-                        <div>
-                            <input onChange={(e)=>setImage3(e.target.files[0])} name='image3' type="file" className="file-input file-input-neutral" />
-                        </div>
-
-                        <div>
-                            <input onChange={(e)=>setImage4(e.target.files[0])} name='image4' type="file" className="file-input file-input-neutral" />
-                        </div>
-
-                    </div> : ''
-                    }
-                    
-
+                  
                    
                    
                     

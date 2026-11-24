@@ -90,7 +90,7 @@ router.post('/api/users/register',body(),checkSchema(registerValidator),async(re
         }
         */
 
-        const salt =await bcrypt.genSalt(10) // Generate dalt rounds to hash the password
+        const salt =await bcrypt.genSalt(10) // Generate salt rounds to hash the password
 
         const hashedPassword =await bcrypt.hash(password,salt) // hashing the password from the salt created
 

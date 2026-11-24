@@ -1,9 +1,8 @@
 import React, { useContext,useState } from 'react'
-import { DoctorContext } from '../context/DoctorContext'
-
+import { AdminContext } from '../context/AdminContext'
 const Header = () => {
 
-  const {token,setToken,showSidebar,setShowSidebar,navigate,currentPage,setCurrentPage} = useContext(DoctorContext)
+  const {token,setToken,showSidebar,setShowSidebar,navigate,currentPage,setCurrentPage} = useContext(AdminContext)
   
 
   const logout = ()=>{

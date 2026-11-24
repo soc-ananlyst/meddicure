@@ -1,13 +1,13 @@
 import React,{useState,useContext,useEffect} from 'react'
 import axios from 'axios'
-import {DoctorContext} from '../context/DoctorContext'
+import { AdminContext } from '../context/AdminContext'
 import {toast} from 'react-toastify'
 
 
 const Profile = () => {
 
   const [user,setUser] = useState([])
-  const {backendURL,navigate,token,setToken} = useContext(DoctorContext)
+  const {backendURL,navigate,token,setToken} = useContext(AdminContext)
   const [errorMessage,setErrorMessage] = useState('')
   const [loading,setLoading] = useState(false)
   const [successMessage,setSuccessMessage] = useState('')

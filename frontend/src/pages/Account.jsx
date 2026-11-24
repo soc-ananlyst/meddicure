@@ -236,12 +236,7 @@ export default function Account() {
     }
   };
 
-  useEffect(()=>{
-    if(!token)
-    {
-      navigate('/auth0')
-    }
-  })
+
 
   useEffect(() => {
     getUserData();
@@ -275,11 +270,11 @@ export default function Account() {
               <div>
                 <div className="flex flex-wrap items-center gap-2">
                   {
-                    user ? <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+                    user ? <h2 className="text-xl font-bold text-blue-700 sm:text-2xl">
                    {user.firstName} {user.lastName}
-                  </h1> : <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+                  </h2> : <h2 className="text-xl font-bold text-slate-900 sm:text-2xl">
                    UserName Here
-                  </h1>
+                  </h2>
 
 
                   }

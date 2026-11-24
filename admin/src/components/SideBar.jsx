@@ -1,12 +1,12 @@
 import React,{useState,useContext} from 'react'
 import {NavLink} from 'react-router-dom'
-import { DoctorContext } from '../context/DoctorContext'
+import { AdminContext } from '../context/AdminContext'
 const SideBar = () => {
 
   const [showAppointment,setShowAppointment] = useState(false)
   const [showSchedule,setShowSchedule] = useState(false)
   
-  const {token,setToken,showSidebar,setShowSidebar,currentPage,setCurrentPage} = useContext(DoctorContext)
+  const {token,setToken,showSidebar,setShowSidebar,currentPage,setCurrentPage} = useContext(AdminContext)
 
   return (
     <div id='sideBar' className={`w-[18%] min-h-screen top-0 bg-white shadow-md absolute border-r- border-gray-300 h-[100vh] px-5 scroll-smooth dark:bg-slate-950 max-sm:w-[80%] ${showSidebar ? 'block transition-all duration-500' : 'hidden'}`}>

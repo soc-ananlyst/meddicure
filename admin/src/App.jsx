@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/web.svg'
 import './App.css'
 import { Routes,Route } from 'react-router-dom'
-import { DoctorContext } from './context/DoctorContext'
+import { AdminContext } from './context/AdminContext'
 import Auth from './components/Auth'
 import Header from './components/Header'
 import SideBar from './components/SideBar'
@@ -14,8 +14,9 @@ import Dashboard from './pages/Dashboard'
 
 function App() {
   const [count, setCount] = useState(0)
-  const {token,setToken,showSidebar,setShowSidebar} = useContext(DoctorContext)
+  const {token,setToken,showSidebar,setShowSidebar} = useContext(AdminContext)
 
+  const current_path = window.location.pathname
   return (
     <div className="min-h-screen">
 
@@ -31,8 +32,10 @@ function App() {
         <div id="overlay" className={` ${showSidebar ? 'block' : 'hidden'}`}>
         
             </div>
+        {
+          current_path === '/dashboard' ? '' : <Header/>
+        }
           
-         <Header />
           
 
           <div className="flex w-full">
