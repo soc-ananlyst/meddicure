@@ -149,8 +149,7 @@ router.post('/api/super/auth',checkSchema(loginValidator),async(request,response
         if(user.role !== 'admin')
             return response.status(403).json({succes:false,message:"Enpoint protected"})
 
-        const is_password = bcrpt.compare(password,user.password);
-
+       
 
         // COMPARING PASSWORDS ENTERED AND THE USER PASSWORD IN OUR DATABASE
         const passswordMatch =await bcrypt.compare(password,user.password)
