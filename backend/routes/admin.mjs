@@ -128,18 +128,19 @@ router.post('/api/super/delete/patients',async(request,response)=>{
 })
 
 
-router.post('/api/super/auth',checkLockout,checkSchema(loginValidator),async(request,response)=>{
-    try{
-        const validation_result = validationResult(body)
+router.post('/api/super/auth',checkSchema(loginValidator),(request,response,next)=>{
+    const validation_result = validationResult(request)
 
-        if(!validation_result.isEmpty)
-        {
-            return response.status(400).json({success:false,error:validation_result.array()})
-        }
+    if(!validation_result.isEmpty())
+    {
+        return response.status(400).json({success:false,error:validation_result.array()})
+    }
+
+    return next()
+},checkLockout,async(request,response)=>{
+    try{
         const {email,password} = request.body;
 
-        const data = matchedData(request);
-        
         const user = await Admin.findOne({email});
 
         if(!user)
@@ -148,7 +149,7 @@ router.post('/api/super/auth',checkLockout,checkSchema(loginValidator),async(req
         }
 
         if(user.role !== 'admin')
-            return response.status(403).json({succes:false,message:"Endpoint protected"})
+            return response.status(403).json({success:false,message:"Endpoint protected"})
 
        
 
@@ -181,7 +182,8 @@ router.post('/api/super/auth',checkLockout,checkSchema(loginValidator),async(req
 
     }catch(err)
     {
-        console.log(err)
+        console.error('Admin authentication failed:',err)
+        return response.status(500).json({success:false,message:"Unable to process authentication request"})
 
     }
 

@@ -46,10 +46,20 @@ export const registerValidator = {
 
 export const loginValidator = {
     email:{
+    in:['body'],
     isEmail:{
         errorMessage:"Invalid format input must be a valid email ID"
     }
 },
+    password:{
+        in:['body'],
+        isString:{
+            errorMessage:"Password must be a string"
+        },
+        notEmpty:{
+            errorMessage:"Password is required"
+        }
+    }
 }
 
 export const patientProfileValidator = {
