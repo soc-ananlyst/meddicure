@@ -15,7 +15,7 @@ const checkLockout = async (request,response,next)=>{
         if(timeSinceLastAttempt < LOCKOUT_TIME_MS)
         {
             const remainingMinutes = Math.ceil((LOCKOUT_TIME_MS - timeSinceLastAttempt) / (1000 * 60));
-            return response.status(429).json({success:false,message:`Account locked try again in ${remainingMinutes} minutes`});
+            return response.json({success:false,message:`Account locked try again in ${remainingMinutes} minutes`});
         }
 
         user.loginAttempts = 0;
