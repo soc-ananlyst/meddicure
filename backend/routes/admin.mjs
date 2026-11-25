@@ -6,6 +6,7 @@ import User from "../models/users.mjs"
 import { loginValidator, registerValidator } from "../validators/validator.mjs";
 import { body, checkSchema, matchedData, validationResult } from "express-validator";
 import bcrypt from 'bcrypt'
+import checkLockout from "../middleware/lockout.mjs";
 
 const router = Router()
 
@@ -127,7 +128,7 @@ router.post('/api/super/delete/patients',async(request,response)=>{
 })
 
 
-router.post('/api/super/auth',checkSchema(loginValidator),async(request,response)=>{
+router.post('/api/super/auth',checkLockout,checkSchema(loginValidator),async(request,response)=>{
     try{
         const validation_result = validationResult(body)
 
@@ -147,7 +148,7 @@ router.post('/api/super/auth',checkSchema(loginValidator),async(request,response
         }
 
         if(user.role !== 'admin')
-            return response.status(403).json({succes:false,message:"Enpoint protected"})
+            return response.status(403).json({succes:false,message:"Endpoint protected"})
 
        
 
@@ -163,12 +164,9 @@ router.post('/api/super/auth',checkSchema(loginValidator),async(request,response
             await user.save();
             return response.status(409).json({success:false,message:"Invalid email or password"})
         }
-        if(user.loginAttempts >= 5 )
-        {
-             
-
-            return response.json({success:false,message:`Too many attempts try in `})
-        }
+        user.loginAttempts = 0;
+        await user.save();
+      
 
 
         const payload = {
